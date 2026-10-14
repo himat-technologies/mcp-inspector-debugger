@@ -1,0 +1,24 @@
+{
+  "name": "mcp-inspector-debugger",
+  "version": "1.0.0",
+  "description": "A lightweight local MCP Inspector & Protocol Message Debugger. Validate, inspect, redact, and generate code for JSON-RPC / MCP messages.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "json-rpc",
+    "inspector",
+    "debugger"
+  ],
+  "author": "HiMat Technologies",
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^5.4.0"
+  }
+}

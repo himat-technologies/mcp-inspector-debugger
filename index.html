@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A lightweight, local-first MCP Inspector & Protocol Message Debugger. Validate, inspect, redact and generate code for JSON-RPC / MCP messages — entirely in your browser." />
+  <title>MCP Inspector &amp; Protocol Message Debugger</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="wrap header-inner">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">&lt;/&gt;</span>
+        <div>
+          <h1>MCP Inspector &amp; Protocol Message Debugger</h1>
+          <p class="tagline">
+            Paste, validate, inspect, redact and export MCP / JSON-RPC messages.
+            Everything runs locally in your browser.
+          </p>
+        </div>
+      </div>
+      <span class="privacy-badge" title="No data leaves your device">100% local &middot; no uploads</span>
+    </div>
+  </header>
+
+  <main class="wrap layout">
+    <!-- Editor column -->
+    <section class="col col-editor">
+      <div class="card">
+        <div class="card-head">
+          <h2>1. MCP JSON-RPC Message</h2>
+          <span class="hint" id="editorStatus">Ready</span>
+        </div>
+
+        <div class="presets" id="presets" aria-label="Quick MCP presets"></div>
+
+        <textarea
+          id="editor"
+          class="editor"
+          spellcheck="false"
+          autocomplete="off"
+          aria-label="MCP JSON-RPC message editor"
+          placeholder='Paste or write an MCP JSON-RPC message here, e.g.&#10;{&#10;  "jsonrpc": "2.0",&#10;  "id": 1,&#10;  "method": "tools/list"&#10;}'></textarea>
+
+        <div class="toolbar">
+          <button id="btnFormat" class="btn">Format JSON</button>
+          <button id="btnValidate" class="btn btn-primary">Validate Message</button>
+          <button id="btnCopy" class="btn">Copy Message</button>
+          <button id="btnExport" class="btn">Export JSON</button>
+          <button id="btnRedact" class="btn btn-accent">Auto-Redact Secrets</button>
+          <button id="btnClear" class="btn btn-ghost">Clear Editor</button>
+        </div>
+
+        <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h2>2. Protocol Flow Diagram</h2>
+        </div>
+        <div id="diagram" class="diagram"></div>
+      </div>
+    </section>
+
+    <!-- Results column -->
+    <section class="col col-results">
+      <div class="card">
+        <div class="card-head">
+          <h2>3. Validation Diagnostics</h2>
+        </div>
+        <div id="diagnostics" class="diagnostics">
+          <p class="empty-state">Validate a message to see diagnostics here.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h2>4. Parsed Message Details</h2>
+        </div>
+        <div id="summary" class="summary">
+          <p class="empty-state">Message details will appear after validation.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h2>5. Code Generator</h2>
+          <button id="btnCopyCode" class="btn btn-sm">Copy Code</button>
+        </div>
+        <div class="tabs" role="tablist">
+          <button class="tab is-active" data-lang="typescript" role="tab" aria-selected="true">TypeScript</button>
+          <button class="tab" data-lang="python" role="tab" aria-selected="false">Python</button>
+        </div>
+        <pre id="codeOutput" class="code-output" aria-live="polite"></pre>
+        <p id="codeNote" class="code-note"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <div class="wrap footer-inner">
+      <div>
+        <strong>HiMat Technologies</strong>
+        <p class="footer-desc">MCP Inspector &amp; Protocol Message Debugger &mdash; a free, local-first developer tool.</p>
+      </div>
+      <nav class="footer-links" aria-label="HiMat Technologies links">
+        <a href="https://himat.co.in" target="_blank" rel="noopener noreferrer">Website</a>
+        <a href="https://himat.tech/free-tools/mcp-inspector-debugger" target="_blank" rel="noopener noreferrer">Live Demo</a>
+        <a href="https://github.com/Himat-developers" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/himat-technologies-14b1051b4" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://www.instagram.com/himat_technologies?stkn=djdmcGxweWtwYWI0" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.facebook.com/people/Himat-technologies/61593829197445/" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="mailto:info@himat.co.in">info@himat.co.in</a>
+        <a href="tel:+919445234023">+91 94452 34023</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
